@@ -1,0 +1,18 @@
+site_title: "PropertyHub - Find Your Dream Home"
+site_description: "Your trusted partner in finding the perfect property. We connect buyers, sellers, and renters with their ideal homes."
+site_url: "https://property-portal.netlify.app"
+default_currency: "USD"
+
+contact:
+  phone: "+1 (555) 123-4567"
+  email: "info@propertyhub.com"
+  address: "123 Real Estate Plaza, Suite 100, Your City, ST 12345"
+
+social:
+  facebook: "https://facebook.com/homesuitehome"
+  twitter: "https://twitter.com/homesuitehome"
+  linkedin: "https://linkedin.com/company/homesuitehome"
+  instagram: "https://instagram.com/homesuitehome"
+
+seo:
+  keywords: "real estate, property, homes for sale, homes for rent, buy property, rent property"

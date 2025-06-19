@@ -1,0 +1,280 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://property-portal.netlify.app
+display_url: https://property-portal.netlify.app
+logo_url: https://property-portal.netlify.app/images/logo.svg
+
+collections:
+  - name: "properties"
+    label: "Properties"
+    folder: "_properties"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "featured_image", widget: "image"}
+      - label: "Property Type"
+        name: "type"
+        widget: "select"
+        options: ["house", "condo", "apartment", "villa", "townhouse", "land", "office", "retail"]
+      - label: "Listing Type"
+        name: "listing_type"
+        widget: "select"
+        options: ["sale", "rent"]
+      - {label: "Price", name: "price", widget: "string", hint: "e.g., $450,000 or $2,500/month"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Address", name: "address", widget: "text", required: false}
+      - {label: "Bedrooms", name: "bedrooms", widget: "number", required: false}
+      - {label: "Bathrooms", name: "bathrooms", widget: "number", required: false, value_type: "float", step: 0.5}
+      - {label: "Square Feet", name: "square_feet", widget: "number", required: false}
+      - {label: "Lot Size", name: "lot_size", widget: "string", required: false}
+      - {label: "Year Built", name: "year_built", widget: "number", required: false}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        allow_add: true
+        required: false
+        fields:
+          - {label: "Feature", name: "feature", widget: "string"}
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        allow_add: true
+        required: false
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Caption", name: "caption", widget: "string", required: false}
+      - label: "Agent"
+        name: "agent"
+        widget: "object"
+        fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Photo", name: "photo", widget: "image", required: false}
+      - label: "Property Details"
+        name: "details"
+        widget: "object"
+        required: false
+        fields:
+          - {label: "Parking Spaces", name: "parking", widget: "number", required: false}
+          - {label: "Garage", name: "garage", widget: "boolean", default: false}
+          - {label: "Pool", name: "pool", widget: "boolean", default: false}
+          - {label: "Garden", name: "garden", widget: "boolean", default: false}
+          - {label: "Balcony", name: "balcony", widget: "boolean", default: false}
+          - {label: "Furnished", name: "furnished", widget: "boolean", default: false}
+          - {label: "Pet Friendly", name: "pet_friendly", widget: "boolean", default: false}
+          - {label: "Air Conditioning", name: "air_conditioning", widget: "boolean", default: false}
+          - {label: "Heating", name: "heating", widget: "boolean", default: false}
+      - label: "Location Details"
+        name: "location_details"
+        widget: "object"
+        required: false
+        fields:
+          - {label: "Latitude", name: "lat", widget: "number", value_type: "float", required: false}
+          - {label: "Longitude", name: "lng", widget: "number", value_type: "float", required: false}
+          - {label: "Neighborhood", name: "neighborhood", widget: "string", required: false}
+          - {label: "City", name: "city", widget: "string"}
+          - {label: "State/Province", name: "state", widget: "string"}
+          - {label: "Zip/Postal Code", name: "zip", widget: "string", required: false}
+          - {label: "Country", name: "country", widget: "string", default: "United States"}
+      - {label: "Status", name: "status", widget: "select", options: ["active", "pending", "sold", "rented"], default: "active"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+
+  - name: "projects"
+    label: "Development Projects"
+    folder: "_projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "featured_image", widget: "image"}
+      - {label: "Price Range", name: "price_range", widget: "string", hint: "e.g., From $450,000 - $850,000"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Developer", name: "developer", widget: "string"}
+      - {label: "Completion Date", name: "completion_date", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - label: "Property Types"
+        name: "property_types"
+        widget: "list"
+        allow_add: true
+        fields:
+          - {label: "Type", name: "type", widget: "string"}
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        allow_add: true
+        required: false
+        fields:
+          - {label: "Feature", name: "feature", widget: "string"}
+      - label: "Amenities"
+        name: "amenities"
+        widget: "list"
+        allow_add: true
+        required: false
+        fields:
+          - {label: "Amenity", name: "amenity", widget: "string"}
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        allow_add: true
+        required: false
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Caption", name: "caption", widget: "string", required: false}
+      - {label: "Status", name: "status", widget: "select", options: ["coming_soon", "selling", "completed"], default: "selling"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+
+  - name: "agents"
+    label: "Agents"
+    folder: "_agents"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Photo", name: "photo", widget: "image"}
+      - {label: "Email", name: "email", widget: "string"}
+      - {label: "Phone", name: "phone", widget: "string"}
+      - {label: "License Number", name: "license", widget: "string", required: false}
+      - {label: "Bio", name: "bio", widget: "markdown"}
+      - label: "Specialties"
+        name: "specialties"
+        widget: "list"
+        allow_add: true
+        required: false
+        fields:
+          - {label: "Specialty", name: "specialty", widget: "string"}
+      - label: "Languages"
+        name: "languages"
+        widget: "list"
+        allow_add: true
+        required: false
+        fields:
+          - {label: "Language", name: "language", widget: "string"}
+      - label: "Social Media"
+        name: "social"
+        widget: "object"
+        required: false
+        fields:
+          - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+          - {label: "Facebook", name: "facebook", widget: "string", required: false}
+          - {label: "Twitter", name: "twitter", widget: "string", required: false}
+          - {label: "Instagram", name: "instagram", widget: "string", required: false}
+      - {label: "Years Experience", name: "experience", widget: "number", required: false}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "_data/home.yml"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "text"}
+          - {label: "Hero Background Image", name: "hero_bg", widget: "image", required: false}
+          - label: "Featured Properties"
+            name: "featured_properties"
+            widget: "list"
+            allow_add: true
+            max: 6
+            fields:
+              - {label: "Property ID", name: "property_id", widget: "string"}
+          - label: "Statistics"
+            name: "stats"
+            widget: "object"
+            fields:
+              - {label: "Total Properties", name: "total_properties", widget: "string"}
+              - {label: "Happy Clients", name: "happy_clients", widget: "string"}
+              - {label: "Years Experience", name: "years_experience", widget: "string"}
+              - {label: "Cities Covered", name: "cities_covered", widget: "string"}
+
+      - label: "About Page"
+        name: "about"
+        file: "_data/about.yml"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Hero Image", name: "hero_image", widget: "image", required: false}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - label: "Team Members"
+            name: "team"
+            widget: "list"
+            allow_add: true
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Position", name: "position", widget: "string"}
+              - {label: "Photo", name: "photo", widget: "image"}
+              - {label: "Bio", name: "bio", widget: "text"}
+
+      - label: "Contact Page"
+        name: "contact"
+        file: "_data/contact.yml"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - label: "Contact Information"
+            name: "contact_info"
+            widget: "object"
+            fields:
+              - {label: "Address", name: "address", widget: "text"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Office Hours", name: "hours", widget: "text"}
+          - label: "Map"
+            name: "map"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Latitude", name: "lat", widget: "number", value_type: "float"}
+              - {label: "Longitude", name: "lng", widget: "number", value_type: "float"}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "_data/settings.yml"
+        fields:
+          - {label: "Site Title", name: "site_title", widget: "string"}
+          - {label: "Site Description", name: "site_description", widget: "text"}
+          - {label: "Site URL", name: "site_url", widget: "string"}
+          - {label: "Logo", name: "logo", widget: "image", required: false}
+          - {label: "Favicon", name: "favicon", widget: "image", required: false}
+          - label: "Default Currency"
+            name: "default_currency"
+            widget: "select"
+            options: ["USD", "EUR", "GBP", "CAD", "AUD"]
+            default: "USD"
+          - label: "Contact Information"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Address", name: "address", widget: "text"}
+          - label: "Social Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - {label: "Facebook", name: "facebook", widget: "string", required: false}
+              - {label: "Twitter", name: "twitter", widget: "string", required: false}
+              - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+              - {label: "Instagram", name: "instagram", widget: "string", required: false}
+              - {label: "YouTube", name: "youtube", widget: "string", required: false}
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - {label: "Meta Keywords", name: "keywords", widget: "text", required: false}
+              - {label: "Google Analytics ID", name: "google_analytics", widget: "string", required: false}
+              - {label: "Google Tag Manager ID", name: "google_tag_manager", widget: "string", required: false}

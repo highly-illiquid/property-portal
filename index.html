@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyHub - Find Your Dream Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/" aria-label="PropertyHub Home">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 20V14H14V20H19V12H22L12 3L2 12H5V20H10Z" fill="currentColor"/>
+                        </svg>
+                        <span>PropertyHub</span>
+                    </a>
+                </div>
+
+                <nav class="nav-desktop">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Buy</a>
+                            <div class="dropdown-content">
+                                <a href="#buy/houses">Houses for Sale</a>
+                                <a href="#buy/condos">Condos for Sale</a>
+                                <a href="#buy/apartments">Apartments for Sale</a>
+                                <a href="#buy/villas">Villas for Sale</a>
+                                <a href="#buy/land">Land for Sale</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Rent</a>
+                            <div class="dropdown-content">
+                                <a href="#rent/houses">Houses for Rent</a>
+                                <a href="#rent/condos">Condos for Rent</a>
+                                <a href="#rent/apartments">Apartments for Rent</a>
+                                <a href="#rent/villas">Villas for Rent</a>
+                            </div>
+                        </li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <select class="currency-selector">
+                        <option value="USD">USD - $</option>
+                        <option value="EUR">EUR - €</option>
+                        <option value="GBP">GBP - £</option>
+                    </select>
+                    <a href="#agent-signup" class="btn btn-outline">Agent Sign Up</a>
+                    <a href="#list-property" class="btn btn-primary">List Property</a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="nav-mobile">
+            <ul>
+                <li><a href="#buy">Buy</a></li>
+                <li><a href="#rent">Rent</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#agent-signup">Agent Sign Up</a></li>
+                <li><a href="#list-property">List Property</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find your dream home</h1>
+                <p class="hero-subtitle">Search over 200,000 properties from trusted agents and owners</p>
+
+                <div class="search-container">
+                    <div class="search-tabs">
+                        <button class="tab-btn active" data-tab="buy">Buy</button>
+                        <button class="tab-btn" data-tab="rent">Rent</button>
+                    </div>
+
+                    <form class="search-form" id="property-search">
+                        <div class="search-fields">
+                            <div class="search-field">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" placeholder="Enter city, neighborhood, or zip">
+                            </div>
+                            <div class="search-field">
+                                <label for="property-type">Property Type</label>
+                                <select id="property-type">
+                                    <option value="">All Types</option>
+                                    <option value="house">House</option>
+                                    <option value="condo">Condo</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="land">Land</option>
+                                </select>
+                            </div>
+                            <div class="search-field">
+                                <label for="price-range">Price Range</label>
+                                <select id="price-range">
+                                    <option value="">Any Price</option>
+                                    <option value="0-100000">$0 - $100k</option>
+                                    <option value="100000-300000">$100k - $300k</option>
+                                    <option value="300000-500000">$300k - $500k</option>
+                                    <option value="500000+">$500k+</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary search-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <p class="section-subtitle">Check out some of the best new real estate developments</p>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop" alt="Luxury Residence" loading="lazy">
+                        <div class="project-badge">New</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Luxury Oceanview Residence</h3>
+                        <p class="project-price">From $547,611 - $2,723,912</p>
+                        <p class="project-location">Miami Beach, Florida</p>
+                        <div class="project-features">
+                            <span>2-4 Bedrooms</span>
+                            <span>Ocean Views</span>
+                            <span>Pool & Spa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop" alt="Modern Condos" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>Downtown Modern Condos</h3>
+                        <p class="project-price">From $346,364 - $648,996</p>
+                        <p class="project-location">Downtown, New York</p>
+                        <div class="project-features">
+                            <span>1-3 Bedrooms</span>
+                            <span>City Views</span>
+                            <span>Gym & Rooftop</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop" alt="Beach Villas" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>Coastal Beach Villas</h3>
+                        <p class="project-price">From $99,787 - $301,794</p>
+                        <p class="project-location">Malibu, California</p>
+                        <div class="project-features">
+                            <span>3-5 Bedrooms</span>
+                            <span>Beach Access</span>
+                            <span>Private Gardens</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse Properties -->
+    <section class="browse-properties">
+        <div class="container">
+            <h2>Browse Properties</h2>
+
+            <div class="property-tabs">
+                <button class="tab-btn active" data-content="sale">For Sale</button>
+                <button class="tab-btn" data-content="rent">For Rent</button>
+            </div>
+
+            <div class="regions-grid" id="sale-content">
+                <div class="region-card">
+                    <div class="region-image">
+                        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1f?w=300&h=200&fit=crop" alt="Urban Properties" loading="lazy">
+                    </div>
+                    <div class="region-content">
+                        <h3>Urban</h3>
+                        <div class="property-links">
+                            <a href="#urban/condos">Condos for sale</a>
+                            <a href="#urban/houses">Houses for sale</a>
+                            <a href="#urban/apartments">Apartments for sale</a>
+                            <a href="#urban/offices">Offices for sale</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-card">
+                    <div class="region-image">
+                        <img src="https://images.unsplash.com/photo-1464822759844-d150baec3443?w=300&h=200&fit=crop" alt="Suburban Properties" loading="lazy">
+                    </div>
+                    <div class="region-content">
+                        <h3>Suburban</h3>
+                        <div class="property-links">
+                            <a href="#suburban/houses">Houses for sale</a>
+                            <a href="#suburban/villas">Villas for sale</a>
+                            <a href="#suburban/condos">Condos for sale</a>
+                            <a href="#suburban/land">Land for sale</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-card">
+                    <div class="region-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop" alt="Coastal Properties" loading="lazy">
+                    </div>
+                    <div class="region-content">
+                        <h3>Coastal</h3>
+                        <div class="property-links">
+                            <a href="#coastal/villas">Villas for sale</a>
+                            <a href="#coastal/condos">Condos for sale</a>
+                            <a href="#coastal/houses">Houses for sale</a>
+                            <a href="#coastal/apartments">Apartments for sale</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-card">
+                    <div class="region-image">
+                        <img src="https://images.unsplash.com/photo-1486318230209-30dcee735f1e?w=300&h=200&fit=crop" alt="Mountain Properties" loading="lazy">
+                    </div>
+                    <div class="region-content">
+                        <h3>Mountain</h3>
+                        <div class="property-links">
+                            <a href="#mountain/cabins">Cabins for sale</a>
+                            <a href="#mountain/houses">Houses for sale</a>
+                            <a href="#mountain/land">Land for sale</a>
+                            <a href="#mountain/villas">Villas for sale</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="regions-grid hidden" id="rent-content">
+                <div class="region-card">
+                    <div class="region-image">
+                        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1f?w=300&h=200&fit=crop" alt="Urban Rentals" loading="lazy">
+                    </div>
+                    <div class="region-content">
+                        <h3>Urban</h3>
+                        <div class="property-links">
+                            <a href="#urban/condos-rent">Condos for rent</a>
+                            <a href="#urban/apartments-rent">Apartments for rent</a>
+                            <a href="#urban/offices-rent">Offices for rent</a>
+                            <a href="#urban/studios-rent">Studios for rent</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-card">
+                    <div class="region-image">
+                        <img src="https://images.unsplash.com/photo-1464822759844-d150baec3443?w=300&h=200&fit=crop" alt="Suburban Rentals" loading="lazy">
+                    </div>
+                    <div class="region-content">
+                        <h3>Suburban</h3>
+                        <div class="property-links">
+                            <a href="#suburban/houses-rent">Houses for rent</a>
+                            <a href="#suburban/villas-rent">Villas for rent</a>
+                            <a href="#suburban/condos-rent">Condos for rent</a>
+                            <a href="#suburban/townhouses-rent">Townhouses for rent</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-card">
+                    <div class="region-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop" alt="Coastal Rentals" loading="lazy">
+                    </div>
+                    <div class="region-content">
+                        <h3>Coastal</h3>
+                        <div class="property-links">
+                            <a href="#coastal/villas-rent">Villas for rent</a>
+                            <a href="#coastal/condos-rent">Condos for rent</a>
+                            <a href="#coastal/apartments-rent">Apartments for rent</a>
+                            <a href="#coastal/vacation-rent">Vacation rentals</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-card">
+                    <div class="region-image">
+                        <img src="https://images.unsplash.com/photo-1486318230209-30dcee735f1e?w=300&h=200&fit=crop" alt="Mountain Rentals" loading="lazy">
+                    </div>
+                    <div class="region-content">
+                        <h3>Mountain</h3>
+                        <div class="property-links">
+                            <a href="#mountain/cabins-rent">Cabins for rent</a>
+                            <a href="#mountain/chalets-rent">Chalets for rent</a>
+                            <a href="#mountain/condos-rent">Condos for rent</a>
+                            <a href="#mountain/vacation-rent">Vacation rentals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Areas -->
+    <section class="popular-areas">
+        <div class="container">
+            <h2>Popular Areas</h2>
+            <div class="areas-grid">
+                <div class="area-tag">
+                    <a href="#areas/downtown">Downtown</a>
+                </div>
+                <div class="area-tag">
+                    <a href="#areas/waterfront">Waterfront</a>
+                </div>
+                <div class="area-tag">
+                    <a href="#areas/midtown">Midtown</a>
+                </div>
+                <div class="area-tag">
+                    <a href="#areas/suburbs">Suburbs</a>
+                </div>
+                <div class="area-tag">
+                    <a href="#areas/historic">Historic District</a>
+                </div>
+                <div class="area-tag">
+                    <a href="#areas/beachfront">Beachfront</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 20V14H14V20H19V12H22L12 3L2 12H5V20H10Z" fill="currentColor"/>
+                        </svg>
+                        <span>PropertyHub</span>
+                    </div>
+                    <p>Your trusted partner in finding the perfect property. We connect buyers, sellers, and renters with their ideal homes.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Buy</h4>
+                        <ul>
+                            <li><a href="#buy/houses">Houses</a></li>
+                            <li><a href="#buy/condos">Condos</a></li>
+                            <li><a href="#buy/apartments">Apartments</a></li>
+                            <li><a href="#buy/villas">Villas</a></li>
+                            <li><a href="#buy/land">Land</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Rent</h4>
+                        <ul>
+                            <li><a href="#rent/houses">Houses</a></li>
+                            <li><a href="#rent/condos">Condos</a></li>
+                            <li><a href="#rent/apartments">Apartments</a></li>
+                            <li><a href="#rent/villas">Villas</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#help">Help Center</a></li>
+                            <li><a href="#privacy">Privacy Policy</a></li>
+                            <li><a href="#terms">Terms of Service</a></li>
+                            <li><a href="#legal">Legal Notice</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 PropertyHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

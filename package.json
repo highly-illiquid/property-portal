@@ -1,0 +1,38 @@
+{
+  "name": "property-portal",
+  "version": "1.0.0",
+  "description": "A modern, mobile-first property rental and sales website with Decap CMS",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build step required'",
+    "deploy": "netlify deploy --prod",
+    "preview": "netlify deploy"
+  },
+  "keywords": [
+    "real-estate",
+    "property",
+    "rental",
+    "sales",
+    "netlify",
+    "decap-cms",
+    "mobile-first",
+    "responsive"
+  ],
+  "author": "PropertyHub Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/property-portal.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
